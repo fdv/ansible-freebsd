@@ -1,0 +1,10 @@
+{% if poudriere_zpool is defined and poudriere_zpool %}
+ZPOOL={{poudriere_zpool}}
+{% else %}
+NO_ZFS=yes
+{% endif %}
+BASEFS={{poudriere_basefs}}
+FREEBSD_HOST={{poudriere_ftp}}
+POUDRIERE_DATA={{poudriere_data}}
+RESOLV_CONF=/etc/resolv.conf
+DISTFILES_CACHE={{poudriere_distfile_cache}}

@@ -1,0 +1,15 @@
+---
+- name: Install Poudriere package
+  pkgng: name=ports-mgmt/poudriere state=present
+
+- name: Create Poudriere base directory
+  file: path={{poudriere_basefs}} state=directory mode=0755
+  
+- name: Create Poudriere data directory
+  file: path={{poudriere_data}} state=directory mode=0755
+  
+- name: Create Poudriere distfile cache
+  file: path={{poudriere_distfile_cache}} state=directory mode=0755
+
+- name: Creates default jail
+  command: poudriere jail -c -m ftp -v {{ freebsd_release }} -f none -j {{ freebsd_release.replace('.', '') }}

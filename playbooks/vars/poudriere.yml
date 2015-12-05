@@ -1,0 +1,7 @@
+---
+poudriere_basefs: /poudriere
+poudriere_data: /poudriere_data
+poudriere_distfile_cache: /usr/ports/distfiles
+poudriere_ftp: ftp://ftp.freebsd.org
+poudriere_zpool: "" # won't use ZFS if emtpy
+freebsd_release: 10.2-RELEASE

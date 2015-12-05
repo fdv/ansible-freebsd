@@ -1,0 +1,5 @@
+[all]
+new.dagobah.fv.gs
+
+[all:vars]
+ansible_python_interpreter=/usr/local/bin/python

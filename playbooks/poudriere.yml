@@ -1,0 +1,8 @@
+---
+- hosts: all
+  sudo: True
+  roles: 
+    - poudriere
+  sudo_user: root
+  vars_files:
+      - vars/poudriere.yml
