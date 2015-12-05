@@ -11,5 +11,10 @@
 - name: Create Poudriere distfile cache
   file: path={{poudriere_distfile_cache}} state=directory mode=0755
 
-- name: Creates default jail
+- name: Checks if the default jail exists
+  stat: path={{poudriere_basefs}}/jails/{{ freebsd_release.replace('.', '') }}
+  register: jail
+
+- name: Creates default jail only if it does not already exist
   command: poudriere jail -c -m ftp -v {{ freebsd_release }} -f none -j {{ freebsd_release.replace('.', '') }}
+  when: jail.stat.exists == False
